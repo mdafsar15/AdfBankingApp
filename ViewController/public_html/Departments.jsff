@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <af:popup childCreation="deferred" autoCancel="disabled" id="peditdept" contentDelivery="lazyUncached">
+    <af:dialog id="d2" title="Edit Department" styleClass="gofdialog">
+      <f:facet name="buttonBar"/>
+      <af:panelFormLayout id="pfl2" labelAlignment="top">
+        <af:inputText value="#{bindings.DepartmentId.inputValue}" label="Department Id" disabled="true"
+                      required="#{bindings.DepartmentId.hints.mandatory}"
+                      columns="#{bindings.DepartmentId.hints.displayWidth}"
+                      maximumLength="#{bindings.DepartmentId.hints.precision}"
+                      shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="it9" contentStyle="width:200px;">
+          <f:validator binding="#{bindings.DepartmentId.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.DepartmentName.inputValue}" label="Department Name"
+                      required="#{bindings.DepartmentName.hints.mandatory}"
+                      columns="#{bindings.DepartmentName.hints.displayWidth}"
+                      maximumLength="#{bindings.DepartmentName.hints.precision}"
+                      shortDesc="#{bindings.DepartmentName.hints.tooltip}" id="it10"
+                      contentStyle="width:200px;">
+          <f:validator binding="#{bindings.DepartmentName.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.ManagerId.inputValue}" label="Manager Id"
+                      required="#{bindings.ManagerId.hints.mandatory}"
+                      columns="#{bindings.ManagerId.hints.displayWidth}"
+                      maximumLength="#{bindings.ManagerId.hints.precision}"
+                      shortDesc="#{bindings.ManagerId.hints.tooltip}" id="it11"
+                      contentStyle="width:200px;">
+          <f:validator binding="#{bindings.ManagerId.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.ManagerId.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.LocationId.inputValue}" label="Location Id"
+                      required="#{bindings.LocationId.hints.mandatory}"
+                      columns="#{bindings.LocationId.hints.displayWidth}"
+                      maximumLength="#{bindings.LocationId.hints.precision}"
+                      shortDesc="#{bindings.LocationId.hints.tooltip}" id="it12" contentStyle="width:200px;">
+          <f:validator binding="#{bindings.LocationId.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.LocationId.format}"/>
+        </af:inputText>
+      </af:panelFormLayout>
+    </af:dialog>
+  </af:popup>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="padddept"
+            popupFetchListener="#{pageFlowScope.empBean.onCreateNewEmp}"
+            binding="#{pageFlowScope.empBean.mainHeaderPopupDept}">
+    <af:dialog id="d1" title="Department Details" styleClass="gofdialog">
+      <f:facet name="buttonBar"/>
+      <af:panelFormLayout id="pfl1" labelAlignment="top">
+        <af:inputText value="#{bindings.DepartmentId.inputValue}" label="Department Id" disabled="true"
+                      required="#{bindings.DepartmentId.hints.mandatory}"
+                      columns="#{bindings.DepartmentId.hints.displayWidth}"
+                      maximumLength="#{bindings.DepartmentId.hints.precision}"
+                      shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="it5"
+                      contentStyle="width:200px;">
+          <f:validator binding="#{bindings.DepartmentId.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.DepartmentName.inputValue}" label="Department Name"
+                      required="#{bindings.DepartmentName.hints.mandatory}"
+                      columns="#{bindings.DepartmentName.hints.displayWidth}"
+                      maximumLength="#{bindings.DepartmentName.hints.precision}"
+                      shortDesc="#{bindings.DepartmentName.hints.tooltip}" id="it6"
+                      contentStyle="width:200px;">
+          <f:validator binding="#{bindings.DepartmentName.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.ManagerId.inputValue}" label="Manager Id"
+                      required="#{bindings.ManagerId.hints.mandatory}"
+                      columns="#{bindings.ManagerId.hints.displayWidth}"
+                      maximumLength="#{bindings.ManagerId.hints.precision}"
+                      shortDesc="#{bindings.ManagerId.hints.tooltip}" id="it7"
+                      contentStyle="width:200px;">
+          <f:validator binding="#{bindings.ManagerId.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.ManagerId.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.LocationId.inputValue}" label="Location Id"
+                      required="#{bindings.LocationId.hints.mandatory}"
+                      columns="#{bindings.LocationId.hints.displayWidth}"
+                      maximumLength="#{bindings.LocationId.hints.precision}"
+                      shortDesc="#{bindings.LocationId.hints.tooltip}" id="it8" contentStyle="width:200px;">
+          <f:validator binding="#{bindings.LocationId.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.LocationId.format}"/>
+        </af:inputText>
+      </af:panelFormLayout>
+    </af:dialog>
+  </af:popup>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="psuccess"
+            binding="#{pageFlowScope.empBean.popupsuccessDept}">
+    <af:dialog id="d3" type="none">
+      <f:facet name="buttonBar"/>
+      <h:outputText value="Data Inserted Successfully !!!" id="ot5" style="font-size:x-large;color: green;"/>
+    </af:dialog>
+  </af:popup>
+  <af:panelGridLayout id="pgl1" inlineStyle="background-color:white;">
+    <af:gridRow marginTop="5px" height="auto" id="gr1">
+      <af:gridCell marginStart="5px" width="50%" id="gc1" inlineStyle="background-color:white;"/>
+      <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2" inlineStyle="background-color:white;"
+                   binding="#{pageFlowScope.empBean.mainPanelDept}">
+        <af:toolbar id="t2" binding="#{pageFlowScope.empBean.toolBarBindingDept}">
+           &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+          <af:button text="Create" id="b1" inlineStyle="font-size:large;" icon="#{resource['images:btnAdd.png']}"
+                     actionListener="#{pageFlowScope.empBean.createDept}"
+                     disabled="#{pageFlowScope.empBean.btnAddDis}" disabledIcon="#{resource['images:btnAddG.png']}">
+            <af:setActionListener from="A" to="#{pageFlowScope.empBean.currentBtnValue}"/>
+          </af:button>
+          <af:button text="Edit" id="b2" inlineStyle="font-size:large;" icon="#{resource['images:btnEdit.png']}"
+                     actionListener="#{pageFlowScope.empBean.editDept}"
+                     disabled="#{pageFlowScope.empBean.btnEditDis}" disabledIcon="#{resource['images:btnEditG.png']}">
+            <af:setActionListener from="E" to="#{pageFlowScope.empBean.currentBtnValue}"/>
+          </af:button>
+          <af:button text="Save" disabled="#{pageFlowScope.empBean.btnSaveDis}"
+                     id="b3" icon="#{resource['images:btnSave.png']}" inlineStyle="font-size:large;"
+                     disabledIcon="#{resource['images:btnSaveG.png']}"
+                     actionListener="#{pageFlowScope.empBean.saveDept}">
+            <af:setActionListener from="S" to="#{pageFlowScope.empBean.currentBtnValue}"/>
+          </af:button>
+          <af:button actionListener="#{pageFlowScope.empBean.cancelDept}" text="Cancel" immediate="true" id="b4"
+                     icon="#{resource['images:btnCan.png']}" inlineStyle="font-size:large;"
+                     disabledIcon="#{resource['images:btnCanG.png']}" disabled="#{pageFlowScope.empBean.btnRollDis}">
+            <af:setActionListener from="C" to="#{pageFlowScope.empBean.currentBtnValue}"/>
+          </af:button>
+          <af:button text="Employees" id="b6" action="backToEmp" inlineStyle="font-size:large;"
+                     icon="#{resource['images:btnExit.png']}"/>
+          <af:button text="Home" id="b5" action="returnDept" inlineStyle="font-size:large;"
+                     icon="#{resource['images:home16.png']}"/>
+        </af:toolbar>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+      <af:gridCell marginStart="5px" width="50%" id="gc3" inlineStyle="background-color:white;"/>
+      <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" inlineStyle="background-color:white;"/>
+    </af:gridRow>
+  </af:panelGridLayout>
+  <af:masonryLayout id="ml1" inlineStyle="background-color:white;"
+                    binding="#{pageFlowScope.empBean.massonryLayoutDept}">
+    <af:panelGroupLayout id="pgl2">
+      <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar">
+          <af:toolbar id="t4">
+            <af:button text="Export" id="b8" icon="#{resource['images:excel.png']}">
+              <af:exportCollectionActionListener type="excelHTML" exportedId="t5" filename="all_xls.xls"/>
+            </af:button>
+          </af:toolbar>
+        </f:facet>
+        <f:facet name="statusbar"/>
+        <af:table value="#{bindings.DepartmentsVO11.collectionModel}" var="row"
+                  rows="#{bindings.DepartmentsVO11.rangeSize}"
+                  emptyText="#{bindings.DepartmentsVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.DepartmentsVO11.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.DepartmentsVO11.collectionModel.makeCurrent}" rowSelection="single"
+                  fetchSize="#{bindings.DepartmentsVO11.rangeSize}"
+                  filterModel="#{bindings.DepartmentsVO11Query.queryDescriptor}" filterVisible="true"
+                  queryListener="#{bindings.DepartmentsVO11Query.processQuery}" varStatus="vs" id="t5"
+                  columnStretching="column:c7">
+          <af:column sortProperty="#{bindings.DepartmentsVO11.hints.DepartmentId.name}" filterable="true"
+                     sortable="true" headerText="Department Id" id="c6">
+            <af:outputText value="#{row.DepartmentId}"
+                           shortDesc="#{bindings.DepartmentsVO11.hints.DepartmentId.tooltip}" id="ot6">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentsVO11.hints.DepartmentId.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.DepartmentsVO11.hints.DepartmentName.name}" filterable="true"
+                     sortable="true" headerText="Department Name" id="c7">
+            <af:outputText value="#{row.DepartmentName}"
+                           shortDesc="#{bindings.DepartmentsVO11.hints.DepartmentName.tooltip}" id="ot7"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.DepartmentsVO11.hints.ManagerId.name}" filterable="true" sortable="true"
+                     headerText="Manager Id" id="c8">
+            <af:outputText value="#{row.ManagerId}" shortDesc="#{bindings.DepartmentsVO11.hints.ManagerId.tooltip}"
+                           id="ot8">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentsVO11.hints.ManagerId.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.DepartmentsVO11.hints.LocationId.name}" filterable="true" sortable="true"
+                     headerText="Location Id" id="c9">
+            <af:outputText value="#{row.LocationId}" shortDesc="#{bindings.DepartmentsVO11.hints.LocationId.tooltip}"
+                           id="ot9">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentsVO11.hints.LocationId.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column id="c5">
+            <af:toolbar id="t3">
+              <af:button id="b7"
+                         hoverIcon="#{resource['images:btneditblue16.png']}"
+                         disabledIcon="#{resource['images:btneditgrey.png']}"
+                         disabled="#{pageFlowScope.empBean.btnTabEditDis}"
+                         actionListener="#{pageFlowScope.empBean.EditActionListener}"
+                         icon="#{resource['images:btneditblue16.png']}">
+                <af:showPopupBehavior popupId=":::peditdept"/>
+                <af:setActionListener from="E" to="#{pageFlowScope.deptBean.currentdetBtnValue}"/>
+              </af:button>
+            </af:toolbar>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </af:panelGroupLayout>
+  </af:masonryLayout>
+</jsp:root>

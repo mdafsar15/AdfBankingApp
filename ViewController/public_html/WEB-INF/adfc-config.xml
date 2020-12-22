@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <managed-bean id="__1">
+    <managed-bean-name>backing_Welcome</managed-bean-name>
+    <managed-bean-class>view.backing.Welcome</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1Welcome.jspx-->
+  </managed-bean>
+  <managed-bean id="__5">
+    <managed-bean-name>backing_Welcome2</managed-bean-name>
+    <managed-bean-class>view.backing.Welcome2</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1Welcome.jspx-->
+  </managed-bean>
+  <managed-bean id="__6">
+    <managed-bean-name>backing_Employee</managed-bean-name>
+    <managed-bean-class>view.backing.Employee</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1Employee.jspx-->
+  </managed-bean>
+  <managed-bean id="__7">
+    <managed-bean-name>backing_Run</managed-bean-name>
+    <managed-bean-class>view.backing.Run</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1Run.jspx-->
+  </managed-bean>
+</adfc-config>

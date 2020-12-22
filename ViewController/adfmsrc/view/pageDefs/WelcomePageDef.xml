@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="WelcomePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeesVO1" RangeSize="4" DataControl="AppModuleDataControl" id="EmployeesVO1Iterator"/>
+    <searchRegion Binds="EmployeesVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="EmployeesVO1Query"/>
+    <iterator Binds="DepartmentsVO1" RangeSize="4" DataControl="AppModuleDataControl" id="DepartmentsVO1Iterator"/>
+    <searchRegion Binds="DepartmentsVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DepartmentsVO1Query"/>
+    <methodIterator Binds="get.result" DataControl="getEmp" RangeSize="25"
+                    BeanClass="model.getEmp.get_Data_methodReturn" id="getIterator"/>
+    <accessorIterator MasterBinding="getIterator" Binds="data" RangeSize="25" DataControl="getEmp"
+                      BeanClass="model.getEmp.get_Data_methodReturn_data" id="dataIterator"/>
+    <searchRegion Binds="dataIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="dataQuery"/>
+    <iterator Binds="post_parameters" RangeSize="25" DataControl="MockyCreate" id="post_parametersIterator"/>
+    <accessorIterator MasterBinding="post_parametersIterator" Binds="post_param" RangeSize="25"
+                      DataControl="MockyCreate" BeanClass="model.MockyCreate.parameters.post_Data_post_param"
+                      id="post_paramIterator"/>
+    <methodIterator Binds="post.result" DataControl="MockyCreate" RangeSize="25"
+                    BeanClass="model.MockyCreate.post_Data_methodReturn" id="postIterator"/>
+    <iterator Binds="update_parameters" RangeSize="25" DataControl="UpdateMocy" id="update_parametersIterator"/>
+    <accessorIterator MasterBinding="update_parametersIterator" Binds="update_param" RangeSize="25"
+                      DataControl="UpdateMocy" BeanClass="model.UpdateMocy.parameters.update_Data_update_param"
+                      id="update_paramIterator"/>
+    <methodIterator Binds="update.result" DataControl="UpdateMocy" RangeSize="25"
+                    BeanClass="model.UpdateMocy.update_Data_methodReturn" id="updateIterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="EmployeesVO1Iterator" id="ImplicitViewCriteriaQuery"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DepartmentsVO1Iterator" id="ImplicitViewCriteriaQuery1"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EmployeesVO1Iterator" id="EmployeesVO1">
+      <nodeDefinition DefName="model.EmployeesVO" Name="EmployeesVO10">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="Email"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="HireDate"/>
+          <Item Value="JobId"/>
+          <Item Value="Salary"/>
+          <Item Value="CommissionPct"/>
+          <Item Value="ManagerId"/>
+          <Item Value="DepartmentId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DepartmentsVO1Iterator" id="DepartmentsVO1">
+      <nodeDefinition DefName="model.DepartmentsVO" Name="DepartmentsVO10">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+          <Item Value="ManagerId"/>
+          <Item Value="LocationId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="DepartmentsVO1Iterator" id="DepartmentId">
+      <AttrNames>
+        <Item Value="DepartmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsVO1Iterator" id="DepartmentName">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsVO1Iterator" id="ManagerId">
+      <AttrNames>
+        <Item Value="ManagerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsVO1Iterator" id="LocationId">
+      <AttrNames>
+        <Item Value="LocationId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="DepartmentsVO1Iterator" id="CreateInsert1" InstanceName="AppModuleDataControl.DepartmentsVO1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="EmployeesVO1Iterator" id="CreateInsert" InstanceName="AppModuleDataControl.EmployeesVO1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="EmployeesVO1Iterator" id="EmployeeId">
+      <AttrNames>
+        <Item Value="EmployeeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVO1Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVO1Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVO1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVO1Iterator" id="PhoneNumber">
+      <AttrNames>
+        <Item Value="PhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVO1Iterator" id="HireDate">
+      <AttrNames>
+        <Item Value="HireDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="EmployeesVO1Iterator" StaticList="false" Uses="LOV_JobId" id="JobId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="EmployeesVO1Iterator" id="Salary">
+      <AttrNames>
+        <Item Value="Salary"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVO1Iterator" id="CommissionPct">
+      <AttrNames>
+        <Item Value="CommissionPct"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="EmployeesVO1Iterator" StaticList="false" Uses="LOV_ManagerId" id="ManagerId1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="EmployeesVO1Iterator" StaticList="false" Uses="LOV_DepartmentId" id="DepartmentId1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="EmployeesVO1Iterator" id="Delete" InstanceName="AppModuleDataControl.EmployeesVO1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="DepartmentsVO1Iterator" id="Delete1" InstanceName="AppModuleDataControl.DepartmentsVO1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <methodAction id="get" RequiresUpdateModel="true" Action="invokeMethod" MethodName="get" IsViewObjectMethod="false"
+                  DataControl="getEmp" InstanceName="bindings.get.dataControl"
+                  ReturnName="data.getEmp.methodResults.get_get_dataControl_get_result"/>
+    <tree IterBinding="dataIterator" id="data">
+      <nodeDefinition DefName="model.getEmp.get_Data_methodReturn_data" Name="data0">
+        <AttrNames>
+          <Item Value="last_name"/>
+          <Item Value="id"/>
+          <Item Value="avatar"/>
+          <Item Value="first_name"/>
+          <Item Value="email"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="post_paramIterator" id="job">
+      <AttrNames>
+        <Item Value="job"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="post_paramIterator" id="name">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="post" RequiresUpdateModel="true" Action="invokeMethod" MethodName="post"
+                  IsViewObjectMethod="false" DataControl="MockyCreate" InstanceName="bindings.post.dataControl"
+                  ReturnName="data.MockyCreate.methodResults.post_post_dataControl_post_result">
+      <NamedData NDName="post_param" NDValue="${bindings.post_paramIterator.currentRow.dataProvider}"
+                 NDType="java.lang.Object"/>
+    </methodAction>
+    <attributeValues IterBinding="postIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="postIterator" id="createdAt">
+      <AttrNames>
+        <Item Value="createdAt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="update_paramIterator" id="job1">
+      <AttrNames>
+        <Item Value="job"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="update_paramIterator" id="name1">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="update" RequiresUpdateModel="true" Action="invokeMethod" MethodName="update"
+                  IsViewObjectMethod="false" DataControl="UpdateMocy" InstanceName="bindings.update.dataControl"
+                  ReturnName="data.UpdateMocy.methodResults.update_update_dataControl_update_result">
+      <NamedData NDName="update_param" NDValue="${bindings.update_paramIterator.currentRow.dataProvider}"
+                 NDType="java.lang.Object"/>
+    </methodAction>
+    <attributeValues IterBinding="updateIterator" id="updatedAt">
+      <AttrNames>
+        <Item Value="updatedAt"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
